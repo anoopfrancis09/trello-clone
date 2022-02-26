@@ -3,7 +3,8 @@ import CardComponent from "./CardComponent";
 import ColumnTitle from "./ColumnTitle";
 
 function ColumnComponent(props) {
-  const { columnData, updateColumnsWithCards, cardEditAction } = props;
+  const { columnData, updateColumnsWithCards, cardEditAction, onAddCard } =
+    props;
   const [isOver, setIsOver] = useState(false);
   const column = useRef(null);
 
@@ -19,6 +20,10 @@ function ColumnComponent(props) {
   const allowDrop = (event) => {
     setIsOver(true);
     event.preventDefault();
+  };
+
+  const onAddCardAddition = (title) => {
+    onAddCard(title, columnData.id);
   };
 
   return (
@@ -37,7 +42,7 @@ function ColumnComponent(props) {
         }}
         className={isOver ? "column-main drag-over box" : "column-main box"}
       >
-        <ColumnTitle title={columnData.title} />
+        <ColumnTitle onSaveCard={onAddCardAddition} title={columnData.title} />
         {columnData.cards.map((eachCard) => {
           return (
             <CardComponent

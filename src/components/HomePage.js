@@ -4,6 +4,7 @@ import {
   updateColumnDataAfterDrag,
   getColumnAddedToData,
   updateCardData,
+  addNewCard,
 } from "../utils";
 import { useState } from "react";
 import { data } from "../mock_data/data";
@@ -26,10 +27,15 @@ function HomePage(props) {
   };
 
   const onCardEdit = (cardData, columnID) => {
-    console.log("New card data", cardData, columnID);
     const updatedData = updateCardData(cardData, columnID, columnData);
     setColumnData(updatedData);
-    console.log("updatedData", updatedData);
+  };
+
+  const onAddCard = (title, columnId) => {
+    const newData = addNewCard(title, columnId, columnData);
+
+    console.log("new data", newData);
+    setColumnData(newData);
   };
 
   return (
@@ -42,6 +48,7 @@ function HomePage(props) {
               updateColumnsWithCards={updateColumnsWithCards}
               columnData={eachColumn}
               cardEditAction={onCardEdit}
+              onAddCard={onAddCard}
               key={eachColumn.id}
             />
           );

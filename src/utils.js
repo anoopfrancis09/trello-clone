@@ -69,3 +69,20 @@ export const updateCardData = (cardData, columnId, data) => {
 
   return { columns: newData };
 };
+export const addNewCard = (title, columnId, data) => {
+  const newCard = { id: getUniqueId(), title };
+  console.log("data", data);
+
+  const columnObject = data.columns.filter((item) => item.id === columnId)[0];
+  columnObject.cards = [...columnObject.cards, newCard];
+
+  const newData = data.columns.map((eachColumn) => {
+    if (eachColumn.id === columnId) {
+      return columnObject;
+    }
+
+    return eachColumn;
+  });
+
+  return { columns: newData };
+};
