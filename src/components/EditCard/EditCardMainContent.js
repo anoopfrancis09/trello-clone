@@ -1,16 +1,14 @@
 import { useRef, useState } from "react";
+import ColorContainer from "./ColorContainer";
 import Input from "./Input";
 
 function EditCardMainContent(props) {
-  const { cardData, updateCardData } = props;
+  const { cardData, updateCardData, updateBannerColor } = props;
   const [desEditStarted, setDescEditStarted] = useState(false);
+  const [color, setColor] = useState(cardData.color);
   const [titleEditStarted, setTitleEditStarted] = useState(false);
   const titleRef = useRef(null);
   const descRef = useRef(null);
-
-  const onChange = (e) => {
-    console.log("value", titleRef.current.innerText);
-  };
 
   const onEditStart = (field) => {
     switch (field) {
@@ -28,9 +26,14 @@ function EditCardMainContent(props) {
   const onSave = () => {
     let newCardData = cardData;
     newCardData.title = titleRef.current.innerText;
+    newCardData.color = color;
     newCardData.description = descRef.current.innerText;
-    console.log("Saved...", newCardData);
     updateCardData(newCardData);
+  };
+
+  const onColorChange = (selectedColor) => {
+    setColor(selectedColor);
+    updateBannerColor(selectedColor);
   };
 
   const onEditStop = (field) => {
@@ -70,11 +73,9 @@ function EditCardMainContent(props) {
           onBlur={(e) => onEditStop("description")}
           onFocus={(e) => onEditStart("description")}
         >
-          "No description added"
+          {cardData.description ? cardData.description : "Add description..."}
         </div>
-        <Input onChange={onChange} value={cardData.title}></Input>
-        <Input value={cardData.title}></Input>
-        <Input value={cardData.title}></Input>
+        <ColorContainer onColorChange={onColorChange} cardData={cardData} />
       </div>
       <div className="saveButton-container">
         <button onClick={onSave} className="saveButton">

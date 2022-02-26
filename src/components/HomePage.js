@@ -1,16 +1,25 @@
-import ColumnComponent from "./ColumnComponent";
+import ColumnComponent from "./Column/ColumnComponent";
 import AddNewColumnComponent from "./AddNewColumnComponent";
 import {
   updateColumnDataAfterDrag,
   getColumnAddedToData,
   updateCardData,
   addNewCard,
+  deleteColumn,
 } from "../utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { data } from "../mock_data/data";
 
 function HomePage(props) {
-  const [columnData, setColumnData] = useState(data);
+  const storedData = window.localStorage.getItem("boardData");
+  console.log("storedData", storedData);
+  const [columnData, setColumnData] = useState(
+    storedData ? JSON.parse(storedData) : data
+  );
+
+  useEffect(() => {
+    window.localStorage.setItem("boardData", JSON.stringify(columnData));
+  }, [columnData]);
 
   const updateColumnsWithCards = (srcColumnId, destColumnId, draggedCardId) => {
     const updatedData = updateColumnDataAfterDrag(
@@ -22,8 +31,8 @@ function HomePage(props) {
     setColumnData(updatedData);
   };
 
-  const addNewColumn = () => {
-    setColumnData(getColumnAddedToData(columnData));
+  const addNewColumn = (title) => {
+    setColumnData(getColumnAddedToData(columnData, title));
   };
 
   const onCardEdit = (cardData, columnID) => {
@@ -38,6 +47,12 @@ function HomePage(props) {
     setColumnData(newData);
   };
 
+  const onDeleteColumn = (columnId) => {
+    const newData = deleteColumn(columnId, columnData);
+    setColumnData(newData);
+    console.log("Deleting column...", newData);
+  };
+
   return (
     <div className="home-container">
       <h1>Trello Board</h1>
@@ -50,6 +65,7 @@ function HomePage(props) {
               cardEditAction={onCardEdit}
               onAddCard={onAddCard}
               key={eachColumn.id}
+              onDeleteColumn={onDeleteColumn}
             />
           );
         })}

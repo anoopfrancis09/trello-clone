@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardEditView from "./EditCard/CardEditView";
+import CardEditView from "../EditCard/CardEditView";
 
 function CardComponent(props) {
   const { cardData, columnId, updateCardData } = props;
@@ -31,6 +31,9 @@ function CardComponent(props) {
         }}
         onDragStart={dragStart}
         className="card-main box"
+        style={{
+          "--bannerColor": cardData.color ? cardData.color : "#6498ff",
+        }}
       >
         <p>{cardData.title}</p>
       </div>

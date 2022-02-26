@@ -38,13 +38,23 @@ export const updateColumnDataAfterDrag = (
   return { columns: newColumns };
 };
 
-export const getColumnAddedToData = (data) => {
+export const getColumnAddedToData = (data, title) => {
   let newColumns = [
     ...data.columns,
-    { cards: [], id: getUniqueId(), isNew: true },
+    { cards: [], id: getUniqueId(), isNew: true, title },
   ];
 
   return { columns: newColumns };
+};
+
+export const deleteColumn = (columnId, data) => {
+  const deletingColumn = data.columns.filter((item) => item.id === columnId)[0];
+  const index = data.columns.indexOf(deletingColumn);
+
+  let columns = data.columns;
+  columns.splice(index, 1);
+
+  return { columns: columns };
 };
 
 export const getUniqueId = () => {
@@ -70,7 +80,7 @@ export const updateCardData = (cardData, columnId, data) => {
   return { columns: newData };
 };
 export const addNewCard = (title, columnId, data) => {
-  const newCard = { id: getUniqueId(), title };
+  const newCard = { id: getUniqueId(), title, color: "#6498ff" };
   console.log("data", data);
 
   const columnObject = data.columns.filter((item) => item.id === columnId)[0];

@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import Input from "./EditCard/Input";
 
-function AddNewCard(props) {
-  const { onSaveCard, onCancel } = props;
-  const [cardTitle, setCardTitle] = useState("");
+function AddNew(props) {
+  const { onSave, onCancel } = props;
+  const [title, setTitle] = useState("");
   const onChange = (e) => {
-    setCardTitle(e.target.value);
+    setTitle(e.target.value);
   };
 
   const onClick = (e) => {
@@ -18,9 +18,13 @@ function AddNewCard(props) {
         onChange={onChange}
         className="addCard-input"
         placeholder="Enter title for card"
+        value={title}
       ></input>
       <button
-        onClick={(e) => onSaveCard(cardTitle)}
+        onClick={(e) => {
+          onSave(title);
+          setTitle("");
+        }}
         className="add-card-button save"
       >
         Save
@@ -32,4 +36,4 @@ function AddNewCard(props) {
   );
 }
 
-export default AddNewCard;
+export default AddNew;
