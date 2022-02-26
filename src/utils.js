@@ -50,3 +50,22 @@ export const getColumnAddedToData = (data) => {
 export const getUniqueId = () => {
   return parseInt(_.uniqueId());
 };
+
+export const updateCardData = (cardData, columnId, data) => {
+  const columnData = data.columns.filter((item) => item.id === columnId)[0];
+  const newCards = columnData.cards.map((eachCard) => {
+    if (eachCard.id === cardData.id) {
+      return cardData;
+    } else return eachCard;
+  });
+
+  columnData.cards = newCards;
+
+  const newData = data.columns.map((eachColumn) => {
+    if (eachColumn.id === columnId) {
+      return columnData;
+    } else return eachColumn;
+  });
+
+  return { columns: newData };
+};

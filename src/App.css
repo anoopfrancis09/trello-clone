@@ -1,13 +1,15 @@
 .App {
-  height: 100vh;
-  /* width: 100vw; */
+  min-height: 100vh;
+  min-width: 100vw;
   flex-direction: column;
   color: white;
   display: flex;
+  position: relative;
   /* background-image: url("./test.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-color: tomato;
+  overflow: auto;
 }
 
 .App-logo {
@@ -40,20 +42,22 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 20px;
-  /* overflow: scroll; */
+  /* padding: 20px; */
+  margin: 10px;
 }
 
 .column-main {
   min-width: 350px;
   color: black;
-  /* margin-right: 10px; */
-  /* height: 100%; */
-  /* padding-bottom: 100px; */
+  padding: 10px;
+  padding-bottom: 50px !important;
   align-items: center;
-  /* display: flex; */
-  /* flex-direction: column; */
+  /* transition: height 4s; */
   background-color: #ebecf0;
+}
+
+.drag-over {
+  height: var(--c);
 }
 
 .box {
@@ -65,7 +69,6 @@
   grid-auto-flow: column;
   column-gap: 10px;
   margin: 10px;
-  /* padding: 10px; */
 }
 
 .card-main {
@@ -75,16 +78,17 @@
   justify-content: center;
   background-color: rgb(179, 179, 173);
   min-width: 100px;
-  min-height: 50px;
+  min-height: 150px;
   cursor: pointer;
 }
 
 .add-column-main {
   height: 50px;
-  width: 200px;
+  width: 150px;
   background-color: rgba(231, 235, 235, 0.568);
   padding-left: 10px;
   padding-right: 30px;
+  margin-right: 10px;
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
@@ -93,7 +97,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px;
+  /* margin: 10px; */
 }
 
 .column-title {
@@ -101,11 +105,131 @@
   color: #5f5f5f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-editView {
+  height: 500px;
+  width: 1000px;
+}
+
+.edit-container {
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-color: #06060682;
+}
+
+.editView-content {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(238, 238, 238, 0.945);
+  height: 100%;
+}
+
+.card-editView-title {
+  width: 100%;
+  height: 150px;
+  background-color: #61dafb;
+}
+
+.close-container {
+  float: right;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b4b4b44f;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.close-container:hover {
+  background-color: #b4b4b48e;
+}
+
+.closeIcon {
+  color: #4e4e4e;
+}
+
+.card-maincontent {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.card-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.common-input {
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.inputContents {
+  float: left;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContent {
+  margin-bottom: 10px;
+  height: 30px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  /* padding-left: 10px; */
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.description {
+  margin-bottom: 10px;
+  min-height: 50px;
+  text-align: left;
+  display: flex;
+}
+
+.saveButton-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.saveButton {
+  margin: 20px;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: #aaeafc;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: #9ce7fc;
+}
+
+.editable {
+  background-color: white;
+}
+
+.menu {
+  cursor: pointer;
 }
