@@ -6,7 +6,6 @@ function ColorContainer(props) {
   const [selectedColor, setSelectedColor] = useState(cardData.color);
 
   const onChange = (color) => {
-    console.log("Color selected", color);
     onColorChange(color);
     setSelectedColor(color);
   };

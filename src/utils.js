@@ -6,7 +6,6 @@ export const updateColumnDataAfterDrag = (
   draggedCardId,
   data
 ) => {
-  console.log(srcColumnId, destColumnId, draggedCardId, data.columns);
   let newSourceColumn = data.columns.filter(
     (item) => item.id === srcColumnId
   )[0];
@@ -81,8 +80,6 @@ export const updateCardData = (cardData, columnId, data) => {
 };
 export const addNewCard = (title, columnId, data) => {
   const newCard = { id: getUniqueId(), title, color: "#6498ff" };
-  console.log("data", data);
-
   const columnObject = data.columns.filter((item) => item.id === columnId)[0];
   columnObject.cards = [...columnObject.cards, newCard];
 

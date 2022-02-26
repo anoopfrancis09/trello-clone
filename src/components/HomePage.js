@@ -12,7 +12,6 @@ import { data } from "../mock_data/data";
 
 function HomePage(props) {
   const storedData = window.localStorage.getItem("boardData");
-  console.log("storedData", storedData);
   const [columnData, setColumnData] = useState(
     storedData ? JSON.parse(storedData) : data
   );
@@ -43,14 +42,12 @@ function HomePage(props) {
   const onAddCard = (title, columnId) => {
     const newData = addNewCard(title, columnId, columnData);
 
-    console.log("new data", newData);
     setColumnData(newData);
   };
 
   const onDeleteColumn = (columnId) => {
     const newData = deleteColumn(columnId, columnData);
     setColumnData(newData);
-    console.log("Deleting column...", newData);
   };
 
   return (

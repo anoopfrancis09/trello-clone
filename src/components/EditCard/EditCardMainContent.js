@@ -40,11 +40,9 @@ function EditCardMainContent(props) {
     switch (field) {
       case "title":
         setTitleEditStarted(false);
-        console.log(titleRef.current.innerText);
         break;
       case "description":
         setDescEditStarted(false);
-        console.log(descRef.current.innerText);
         break;
       default:
         return;

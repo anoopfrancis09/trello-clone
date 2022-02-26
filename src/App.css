@@ -78,7 +78,7 @@
   justify-content: center;
   background-color: var(--bannerColor);
   min-width: 100px;
-
+  box-shadow: 2px 2px 5px #b3b3b3;
   min-height: 150px;
   cursor: pointer;
 }
