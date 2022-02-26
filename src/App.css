@@ -232,4 +232,6 @@
 
 .menu {
   cursor: pointer;
+  color: grey;
+  font-weight: lighter;
 }
