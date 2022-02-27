@@ -297,6 +297,10 @@
   border: 2px solid #0094ff;
 }
 
+.customColorLabel {
+  margin-left: 10px;
+}
+
 /* popup */
 
 .popup {

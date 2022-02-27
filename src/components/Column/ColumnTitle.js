@@ -27,10 +27,14 @@ function ColumnTitle(props) {
           <div onClick={onClick} className="popup">
             <i className="fa fa-plus-square menu mrg5"></i>
             <div ref={popup} className="popuptext" id="myPopup">
-              <AddNew onSave={onAddCard} onCancel={onCardCancel} />
+              <AddNew
+                placeHolder="Enter title for card"
+                onSave={onAddCard}
+                onCancel={onCardCancel}
+              />
             </div>
           </div>
-          <div
+          {/* <div
             onClick={(e) => {
               if (window.confirm("Do you want to delete the column?")) {
                 onDeleteColumn();
@@ -38,7 +42,7 @@ function ColumnTitle(props) {
             }}
           >
             <i className="fa fa-window-close menu mrg5"></i>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

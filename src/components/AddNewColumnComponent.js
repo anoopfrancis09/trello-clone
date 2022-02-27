@@ -28,7 +28,13 @@ function AddNewColumnComponent(props) {
         <i className="fa fa-plus-square"></i>
         <p className="add-column-label">Add another list</p>
       </div>
-      {shouldShow && <AddNew onSave={onSave} onCancel={onCancel} />}
+      {shouldShow && (
+        <AddNew
+          placeHolder="Enter title for column"
+          onSave={onSave}
+          onCancel={onCancel}
+        />
+      )}
     </div>
   );
 }

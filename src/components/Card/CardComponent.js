@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardEditView from "../EditCard/CardEditView";
+import CardEditView from "./EditCard/CardEditView";
 
 function CardComponent(props) {
   const { cardData, columnId, updateCardData } = props;

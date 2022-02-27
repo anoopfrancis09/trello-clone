@@ -10,8 +10,14 @@ function ColorContainer(props) {
     setSelectedColor(color);
   };
 
+  const onCustomColorSelection = (e) => {
+    onColorChange(e.target.value);
+    setSelectedColor(e.target.value);
+  };
+
   return (
     <div className="colorBox-container">
+      <p>Pick banner color: </p>
       <ColorBox
         onColorChange={onChange}
         selected={selectedColor === "yellow" ? true : false}
@@ -41,6 +47,14 @@ function ColorContainer(props) {
         onColorChange={onChange}
         selected={selectedColor === "lightsteelblue" ? true : false}
         color="lightsteelblue"
+      />
+      <p className="customColorLabel">Custom: </p>
+      <input
+        className={"colorBox"}
+        onChange={onCustomColorSelection}
+        type="color"
+        id="myColor"
+        defaultValue={selectedColor}
       />
     </div>
   );

@@ -1,8 +1,7 @@
-import { useRef, useState } from "react";
-import Input from "./EditCard/Input";
+import { useState } from "react";
 
 function AddNew(props) {
-  const { onSave, onCancel } = props;
+  const { onSave, onCancel, placeHolder } = props;
   const [title, setTitle] = useState("");
   const onChange = (e) => {
     setTitle(e.target.value);
@@ -17,7 +16,7 @@ function AddNew(props) {
       <input
         onChange={onChange}
         className="addCard-input"
-        placeholder="Enter title for card"
+        placeholder={placeHolder}
         value={title}
       ></input>
       <button
