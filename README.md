@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# About the application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trello clone app is a clone for original Trello app.
+This app have used only basic features from Trello app to show how it can be built using simple Javascript and React without any 3rd party libraries.
 
-## Available Scripts
+- Application consist of one main page where the user can see thei added boards(column) and tasks(cards) in those boards.
+- They can rearrange the cards from one board to another by simply dragging and dropping it on the - respective boards.
+- Also user can edit the card content by clicking on the cards.
+- Onclick, they will be shown a new popup view to edit the details.
+- As of now, only card title, card description and banner color can be edited.
+- The data will be stored to local storage whenevr user makes some changes on it.
+- USer can close the application and re open the url to see the saved changes.
 
-In the project directory, you can run:
+## System requirement
+
+- To start the application, you will need node and npm installed on your system.
+- If it's already installed, go to the project directory in any cmnd line tools and do the following commands
+
+### `npm install`
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This will start the server to run on your default browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Future implementations planned
 
-### `npm test`
+As the application is a clone for trello app, there are a lot of feature that are not added o this app but which I plan to add may be in the coming future releases. Those are listed below.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Use images as the banner for cards.
+- Rearrange the cards within a column.
+- Board/column deletion when ever user likes to.
+- More features added to the card so that the user could edit those in the card edit screen.
+- Also we could sent out a reminder emails whenever some tasks due date is within the coming two days or so.
+- We can add watchers to cards so that whenevr some edit happens on the card/task, those watchers will get an notification on the changes.
+- We can have a home page where we can show different group of boards, as a summary and upon click of each board groups, user can be navigated to the particular board group and see all the boards and cards on that group.
