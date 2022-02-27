@@ -33,3 +33,4 @@ As the application is a clone for trello app, there are a lot of feature that ar
 - Also we could sent out a reminder emails whenever some tasks due date is within the coming two days or so.
 - We can add watchers to cards so that whenevr some edit happens on the card/task, those watchers will get an notification on the changes.
 - We can have a home page where we can show different group of boards, as a summary and upon click of each board groups, user can be navigated to the particular board group and see all the boards and cards on that group.
+- Add feature to edit the column name.
